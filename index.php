@@ -34,33 +34,33 @@ endif;
 ?>
 
 <a href="addProduct.php" class="btn btn-success">Product toevoegen</a>
-<?php if(isset($results) && !empty($results)): ?>
-<?php include 'includes/start_ProductTable_inc.php' ?>
-<?php foreach ($results as $row): ?>
+<?php if (isset($results) && !empty($results)): ?>
+    <?php include 'includes/start_ProductTable_inc.php' ?>
+    <?php foreach ($results as $row): ?>
 
-    <tr>
-        <td><?php print $row['id']; ?></td>
-        <td><?php print $row['name']; ?></td>
-        <td><?php print $row['description']; ?></td>
-        <td><?php print $row['image']; ?></td>
-        <td><?php print $row['category']; ?></td>
-        <td><?php print convertDecimalPoint($row['price']); ?></td>
-        <td>
-            <a href="updateProduct.php?id=<?php print $row['id'] ?>" class="btn btn-success">Aanpassen</a>
-        </td>
-        <td class="delete" id="<?php print $row['id'] ?>">
-            <input id="<?php print $row['id'] ?>" type="submit" class="btn btn-danger" value="verwijderen">
-        </td>
-    </tr>
+        <tr>
+            <td><?php print $row['id']; ?></td>
+            <td><?php print $row['name']; ?></td>
+            <td><?php print $row['description']; ?></td>
+            <td><?php print $row['image']; ?></td>
+            <td><?php print $row['category']; ?></td>
+            <td><?php print convertDecimalPoint($row['price']); ?></td>
+            <td>
+                <a href="updateProduct.php?id=<?php print $row['id'] ?>" class="btn btn-success">Aanpassen</a>
+            </td>
+            <td class="delete" id="<?php print $row['id'] ?>">
+                <input id="<?php print $row['id'] ?>" type="submit" class="btn btn-danger" value="verwijderen">
+            </td>
+        </tr>
 
-<?php endforeach; ?>
-<script src="js/handleProductDelete.js"></script>
-<?php include "includes/end_ProductTable_inc.php"; ?>
+    <?php endforeach; ?>
+    <script src="js/handleProductDelete.js"></script>
+    <?php include "includes/end_ProductTable_inc.php"; ?>
 <?php else: ?>
-<div class="alert alert-warning">
-    Er zijn geen producten gevonden.
-</div>
-<?php
+    <div class="alert alert-warning">
+        Er zijn geen producten gevonden.
+    </div>
+    <?php
 endif;
 $db = NULL;
 
