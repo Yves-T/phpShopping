@@ -34,7 +34,7 @@ endif;
 ?>
 
 <a href="addProduct.php" class="btn btn-success">Product toevoegen</a>
-
+<?php if(isset($results) && !empty($results)): ?>
 <?php include 'includes/start_ProductTable_inc.php' ?>
 <?php foreach ($results as $row): ?>
 
@@ -56,7 +56,12 @@ endif;
 <?php endforeach; ?>
 <script src="js/handleProductDelete.js"></script>
 <?php include "includes/end_ProductTable_inc.php"; ?>
+<?php else: ?>
+<div class="alert alert-warning">
+    Er zijn geen producten gevonden.
+</div>
 <?php
+endif;
 $db = NULL;
 
 include 'includes/html_stop_inc.php'
