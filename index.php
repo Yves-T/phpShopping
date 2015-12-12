@@ -21,7 +21,7 @@ try {
 
     $stmt = $db->query("SELECT * FROM product");
     $stmt->execute();
-    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $results = $stmt->fetchAll();
     ?>
 
     <?php
