@@ -14,9 +14,6 @@ function convertDecimalPoint($input)
 }
 
 include 'includes/html_start_inc.php';
-try {
-//open the database
-    $db = new PDO('sqlite:shopping.sqlite');
     include 'includes/db_inc.php';
 
     $stmt = $db->query("SELECT * FROM product");
@@ -61,8 +58,6 @@ try {
     <?php include "includes/end_ProductTable_inc.php"; ?>
     <?php
     $db = NULL;
-} catch (PDOException $e) {
-    print 'Fout: ' . $e->getMessage();
-}
+
 include 'includes/html_stop_inc.php'
 ?>
