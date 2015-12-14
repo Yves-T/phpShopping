@@ -21,7 +21,7 @@
                 <script>
                     CKEDITOR.replace('description', {
                             filebrowserBrowseUrl: 'lib/Filemanager/index.html',
-                            filebrowserWindowWidth: '640',
+                            filebrowserWindowWidth: '1000',
                             filebrowserWindowHeight: '480'
                         }
                     );
