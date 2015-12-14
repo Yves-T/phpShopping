@@ -18,7 +18,14 @@
                 <label for="description">Omschrijving</label>
                 <textarea class="form-control" name="description"
                           id="description"><?php print (isset($data['description']) ? $data['description'] : ''); ?></textarea>
-                <script>CKEDITOR.replace('description')</script>
+                <script>
+                    CKEDITOR.replace('description', {
+                            filebrowserBrowseUrl: 'lib/Filemanager/index.html',
+                            filebrowserWindowWidth: '640',
+                            filebrowserWindowHeight: '480'
+                        }
+                    );
+                </script>
             </div>
         </div>
     </div>

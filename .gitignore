@@ -1,2 +1,4 @@
 *.sqlite
 werkingRTE
+lib
+*.jpg
