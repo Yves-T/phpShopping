@@ -51,6 +51,7 @@ include 'includes/html_start_inc.php'
     <a href="index.php">Terug naar lijst</a>
 </p>
 
+<h1>Product aanpassen</h1>
 
 <?php
 include 'includes/formvalidation/formErrors.php';
