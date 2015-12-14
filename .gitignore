@@ -1,3 +1,5 @@
 *.sqlite
-lib
+lib/Filemanager
+lib/ckeditor/*
+!lib/ckeditor/config.js
 *.jpg
