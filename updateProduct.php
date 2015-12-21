@@ -1,6 +1,7 @@
 <?php
 include 'includes/db_inc.php';
 include 'includes/formvalidation/FormValidation.php';
+include 'includes/fileFunctions.php';
 
 $sql = 'SELECT * FROM product WHERE id=:id';
 $stmt = $db->prepare($sql);
@@ -13,6 +14,7 @@ $data = $stmt->fetch();
 
 $errors = [];
 if (!empty($_POST)) {
+    $oldImage = $data['image'];
     $data = $_POST;
 
     $formValidation = new ProductFormValidation($data);
@@ -20,6 +22,22 @@ if (!empty($_POST)) {
     $errors = $formValidation->validateForm();
 
     if (empty($errors)) {
+
+        if (file_exists('productImages/' . $oldImage)) {
+            unlink('productImages/' . $data['image']);
+        }
+
+        $imageBaseName = basename($_FILES['image']['name']);
+        $tempName = $_FILES['image']['tmp_name'];
+        $uploadDir = 'productImages/';
+        $uploadFile = $uploadDir . $imageBaseName;
+        if (!move_uploaded_file($tempName, $uploadFile)) {
+            $errorCookie = "errorMessage";
+            $errorCookieValue = "Er ging iets mis met het uploaden van het bestand";
+            setcookie($errorCookie, $errorCookieValue, time() + (60), "/");
+            header('location:index.php');
+            exit();
+        }
 
         $sql = 'UPDATE product SET name=:name,description=:description,image=:image,category=:category,price=:price ' .
             'WHERE id=:id';
@@ -29,7 +47,7 @@ if (!empty($_POST)) {
             'id' => $_GET['id'],
             'name' => $data['name'],
             'description' => $data['description'],
-            'image' => $data['image'],
+            'image' => $imageBaseName,
             'category' => $data['category'],
             'price' => $data['price']
         ]);
