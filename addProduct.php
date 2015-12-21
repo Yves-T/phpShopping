@@ -12,6 +12,18 @@ if (!empty($_POST)) {
 
     if (empty($errors)) {
 
+        $imageBaseName = basename($_FILES['image']['name']);
+        $tempName = $_FILES['image']['tmp_name'];
+        $uploadDir = 'productImages/';
+        $uploadFile = $uploadDir . $imageBaseName;
+        if (!move_uploaded_file($tempName, $uploadFile)) {
+            $errorCookie = "errorMessage";
+            $errorCookieValue = "Er ging iets mis met het uploaden van het bestand";
+            setcookie($errorCookie, $errorCookieValue, time() + (60), "/");
+            header('location:index.php');
+            exit();
+        }
+
         $query = 'INSERT INTO product (name,description,image,category,price) ' .
             'VALUES (:name,:description,:image,:category,:price);';
 
@@ -20,7 +32,7 @@ if (!empty($_POST)) {
         $stmt->execute([
             'name' => $data['name'],
             'description' => $data['description'],
-            'image' => $data['image'],
+            'image' => $imageBaseName,
             'category' => $data['category'],
             'price' => (float)$data['price']
         ]);

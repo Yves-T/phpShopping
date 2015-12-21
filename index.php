@@ -31,6 +31,17 @@ if (isset($_COOKIE[$cookie_name])):
     unset($_COOKIE[$cookie_name]);
     setcookie($cookie_name, null, -1, '/');
 endif;
+
+$errorCookie = "errorMessage";
+if (isset($_COOKIE[$errorCookie])):
+    ?>
+    <div class="alert alert-warning" role="alert"><p><?php print $_COOKIE[$errorCookie] ?></p></div>
+    <?php
+    // remove cookie
+    unset($_COOKIE[$errorCookie]);
+    setcookie($errorCookie, null, -1, '/');
+endif;
+
 ?>
 
 <a href="addProduct.php" class="btn btn-success">Product toevoegen</a>
@@ -42,7 +53,11 @@ endif;
             <td><?php print $row['id']; ?></td>
             <td><?php print $row['name']; ?></td>
             <td><?php print $row['description']; ?></td>
-            <td><?php print $row['image']; ?></td>
+            <td>
+                <?php if (isset($row['image']) && !empty($row['image'])): ?>
+                    <img src="productImages/<?php print $row['image']; ?>" alt="" width="100">
+                <?php endif; ?>
+            </td>
             <td><?php print $row['category']; ?></td>
             <td><?php print convertDecimalPoint($row['price']); ?></td>
             <td>

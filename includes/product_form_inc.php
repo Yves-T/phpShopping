@@ -1,5 +1,5 @@
 
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
 
     <div class="row">
         <div class="col-md-6">
@@ -34,8 +34,8 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="image">Afbeelding</label> <br>
-                <input type="text" class="form-control" name="image" id="image"
-                       value="<?php print (isset($data['image']) ? $data['image'] : ''); ?>">
+                <input type="hidden" name="MAX_FILE_SIZE" value="3000000">
+                <input type="file" class="form-control" name="image" id="image">
             </div>
         </div>
     </div>
