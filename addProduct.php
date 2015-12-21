@@ -2,6 +2,7 @@
 
 include 'includes/db_inc.php';
 include 'includes/formvalidation/FormValidation.php';
+include 'includes/fileFunctions.php';
 
 $errors = [];
 if (!empty($_POST)) {
@@ -13,10 +14,7 @@ if (!empty($_POST)) {
     if (empty($errors)) {
 
         $imageBaseName = basename($_FILES['image']['name']);
-        $tempName = $_FILES['image']['tmp_name'];
-        $uploadDir = 'productImages/';
-        $uploadFile = $uploadDir . $imageBaseName;
-        if (!move_uploaded_file($tempName, $uploadFile)) {
+        if (!handleFileUpload($_FILES)) {
             $errorCookie = "errorMessage";
             $errorCookieValue = "Er ging iets mis met het uploaden van het bestand";
             setcookie($errorCookie, $errorCookieValue, time() + (60), "/");
