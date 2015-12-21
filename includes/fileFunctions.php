@@ -6,3 +6,10 @@ function handleFileUpload($files) {
     $uploadFile = $uploadDir . $imageBaseName;
     return move_uploaded_file($tempName, $uploadFile);
 }
+
+function handleDeleteFile($file)
+{
+    if (file_exists('productImages/' . $file)) {
+        unlink('productImages/' . $file);
+    }
+}

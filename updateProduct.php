@@ -23,9 +23,7 @@ if (!empty($_POST)) {
 
     if (empty($errors)) {
 
-        if (file_exists('productImages/' . $oldImage)) {
-            unlink('productImages/' . $data['image']);
-        }
+        handleDeleteFile($oldImage);
 
         $imageBaseName = basename($_FILES['image']['name']);
 
