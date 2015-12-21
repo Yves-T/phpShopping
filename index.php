@@ -8,9 +8,7 @@
 function convertDecimalPoint($input)
 {
     $float = (float)$input;
-    $float += 0;
-    $output = str_replace('.', ',', (string)$float);
-    return $output;
+    return number_format($float,2,',',' ');
 }
 
 include 'includes/html_start_inc.php';
