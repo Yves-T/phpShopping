@@ -1,17 +1,8 @@
 <?php
 
-/**
- * Convert decimal point to comma and remove useless zero digits
- * @param $input
- * @return mixed
- */
-function convertDecimalPoint($input)
-{
-    $float = (float)$input;
-    return number_format($float,2,',',' ');
-}
 
 include 'includes/html_start_inc.php';
+include 'includes/formatFunctions_inc.php';
 include 'includes/db_inc.php';
 
 $stmt = $db->query("SELECT * FROM product");

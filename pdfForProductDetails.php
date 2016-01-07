@@ -1,6 +1,7 @@
 <?php
 
 include 'includes/db_inc.php';
+include 'includes/formatFunctions_inc.php';
 require 'lib/FPDF/fpdf.php';
 
 $query = 'SELECT * FROM product WHERE id=:id';
@@ -12,11 +13,6 @@ $stmt->execute([
 
 $result = $stmt->fetch();
 
-function convertDecimalPoint($input)
-{
-    $float = (float)$input;
-    return number_format($float, 2, ',', ' ');
-}
 
 $pdf = new FPDF();
 $pdf->AddPage();
