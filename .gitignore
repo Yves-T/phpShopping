@@ -1,4 +1,5 @@
 *.sqlite
+lib/FPDF
 lib/Filemanager
 lib/ckeditor/*
 !lib/ckeditor/config.js

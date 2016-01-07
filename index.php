@@ -50,7 +50,10 @@ endif;
         <tr>
             <td><?php print $row['id']; ?></td>
             <td><?php print $row['name']; ?></td>
-            <td><?php print $row['description']; ?></td>
+            <td>
+                <a href="pdfForProductDetails.php?id=<?php print $row['id']; ?>">
+                    <?php print $row['description']; ?></a>
+            </td>
             <td>
                 <?php if (isset($row['image']) && !empty($row['image'])): ?>
                     <img src="productImages/<?php print $row['image']; ?>" alt="" width="100">
