@@ -1,4 +1,6 @@
 *.sqlite
+lib/
+lib/jpgraph
 lib/FPDF
 lib/Filemanager
 lib/ckeditor/*
