@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+define('USER','user');
+define('ERRORMESSAGE','errorMessage');
+
+
 $dsn = "sqlite:shopping.sqlite";
 $pdoOptions = array(
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

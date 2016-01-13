@@ -38,6 +38,19 @@
                 <li class="<?php print (($pageNmae == 'index.php') ? 'active' : ''); ?>">
                     <a href="#">Admin</a>
                 </li>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <?php if (isset($_SESSION[USER])): ?>
+                    <li>
+                        <a href="logout.php">Uitloggen</a>
+                    </li>
+                <?php else: ?>
+                    <li>
+                        <a href="admin.php">Inloggen</a>
+                    </li>
+                <?php endif; ?>
             </ul>
 
         </div><!-- /.navbar-collapse -->

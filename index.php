@@ -1,9 +1,8 @@
 <?php
 
-
+include 'includes/db_inc.php';
 include 'includes/html_start_inc.php';
 include 'includes/formatFunctions_inc.php';
-include 'includes/db_inc.php';
 
 $stmt = $db->query("SELECT * FROM product");
 $stmt->execute();
