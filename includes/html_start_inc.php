@@ -34,11 +34,19 @@
             <a class="navbar-brand" href="#">Shopping project</a>
         </div>
 
+        <?php
+        $pageNmae = basename($_SERVER['PHP_SELF']);
+        ?>
+
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Admin</a></li>
-                <li class=""><a href="gastenboek.php">Gastenboek</a></li>
+                <li class="<?php print (($pageNmae == 'gastenboek.php') ? 'active' : ''); ?>">
+                    <a href="gastenboek.php">Gastenboek</a>
+                </li>
+                <li class="<?php print (($pageNmae == 'index.php') ? 'active' : ''); ?>">
+                    <a href="#">Admin</a>
+                </li>
             </ul>
 
         </div><!-- /.navbar-collapse -->
