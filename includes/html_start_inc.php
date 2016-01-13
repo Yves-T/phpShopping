@@ -31,7 +31,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Shopping project</a>
+            <a class="navbar-brand" href="index.php">Shopping project</a>
         </div>
 
         <?php
