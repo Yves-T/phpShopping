@@ -2,7 +2,7 @@
 include 'includes/html_start_inc.php';
 include 'includes/formatFunctions_inc.php';
 //de naam van het tekstbestand in een variabele steken
-$textfile = "lesgastenboek.txt";
+$textfile = "gastenboek.txt";
 
 //controleren of de gebruiker op de pagina komt na het invullen van het formulier
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
