@@ -1,4 +1,5 @@
 <?php
+include 'includes/db_inc.php';
 include 'includes/html_start_inc.php';
 include 'includes/formatFunctions_inc.php';
 //de naam van het tekstbestand in een variabele steken
