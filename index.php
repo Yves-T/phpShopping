@@ -3,10 +3,23 @@
 include 'includes/db_inc.php';
 include 'includes/html_start_inc.php';
 include 'includes/formatFunctions_inc.php';
+include "includes/ResultPager.php";
 
-$stmt = $db->query("SELECT * FROM product");
-$stmt->execute();
-$results = $stmt->fetchAll();
+$totalQuery = 'SELECT COUNT(*) FROM product';
+$query = 'SELECT * FROM product ORDER BY name LIMIT :limit OFFSET :offset';
+$resultPager = new ResultPager($query, $totalQuery, $db);
+
+$page = min($resultPager->getPages(), filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
+    'options' => array(
+        'default' => 1,
+        'min_range' => 1,
+    ),
+)));
+
+$pager = $resultPager->getPager($page);
+
+$results = $resultPager->getresults();
+
 ?>
 
 <?php
@@ -62,6 +75,11 @@ endif;
     <?php endforeach; ?>
     <script src="js/handleProductDelete.js"></script>
     <?php include "includes/end_ProductTable_inc.php"; ?>
+    <div class="text-center">
+        <?php
+        echo $pager;
+        ?>
+    </div>
 <?php else: ?>
     <div class="alert alert-warning">
         Er zijn geen producten gevonden.
