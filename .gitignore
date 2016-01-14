@@ -1,5 +1,6 @@
 *.sqlite
 .sass-cache
+lesgastenboek.txt
 css/
 gulpfile.js
 package.json
