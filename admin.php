@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <input type="password" name="password" id="inputPassword" placeholder="Paswoord" class="form-control">
     </div>
 
-    <input type="submit" value="Inloggen">
+    <input type="submit" value="Inloggen" class="btn btn-primary">
 
 </form>
 
