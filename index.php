@@ -74,7 +74,7 @@ endif;
                 <?php print $row['name']; ?>
                 </a>
             </td>
-            <td class="rowDescription">
+            <td class="rowDescription more">
                     <?php print $row['description']; ?>
             </td>
             <td class="rowImages">
@@ -87,6 +87,8 @@ endif;
         </tr>
 
     <?php endforeach; ?>
+    <script type="text/javascript" src="js/readmore.js"></script>
+
     <?php include "includes/end_ProductTable_inc.php"; ?>
 
     <div class="text-center">
