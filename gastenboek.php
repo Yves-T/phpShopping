@@ -30,44 +30,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 ?>
-<div class="container">
-    <h2>Een eenvoudig gastenboek</h2>
-            <form method="post">
-                <div class="form-group">
-                    <label for="naam">Naam:</label>
-                    <input id="naam" name="naam" type="text" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input id="email" name="email" type="text" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label for="commentaar">Commentaar:</label>
-                    <textarea id="commentaar" cols="50" rows="5" name="commentaar" class="form-control"></textarea>
-                    <script>
-                        CKEDITOR.replace('commentaar', {
-                                filebrowserBrowseUrl: 'lib/Filemanager/index.html',
-                                filebrowserWindowWidth: '1000',
-                                filebrowserWindowHeight: '480'
-                            }
-                        );
-                    </script>
-                </div>
-                <input value="Verzenden" type="submit" class="btn btn-default"/>
-            </form>
+<div ng-app="shoppingApp">
+    <div class="container" ng-controller="shoppingController as shopping">
+        <h2>Een eenvoudig gastenboek</h2>
+        <div>
+            <button class="btn btn-success" ng-click="shopping.toggleForm()">{{shopping.toggleText}}</button>
+        </div>
+        <form method="post" ng-show="shopping.showForm">
+            <div class="form-group">
+                <label for="naam">Naam:</label>
+                <input id="naam" name="naam" type="text" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input id="email" name="email" type="text" class="form-control"/>
+            </div>
+            <div class="form-group">
+                <label for="commentaar">Commentaar:</label>
+                <textarea id="commentaar" cols="50" rows="5" name="commentaar" class="form-control"></textarea>
+                <script>
+                    CKEDITOR.replace('commentaar', {
+                            filebrowserBrowseUrl: 'lib/Filemanager/index.html',
+                            filebrowserWindowWidth: '1000',
+                            filebrowserWindowHeight: '480'
+                        }
+                    );
+                </script>
+            </div>
+            <input value="Verzenden" type="submit" class="btn btn-default"/>
+        </form>
 
 
+        <h2>Achtergelaten berichtjes:</h2>
 
-            <h2>Achtergelaten berichtjes:</h2>
+        <script src="js/commentScript.js"></script>
 
 
-            <?php
-            //de inhoud van het tekstbestand afdrukken
-            if (file_exists($textfile) && filesize($textfile) > 0) {
-                readfile($textfile);
-            }
-            ?>
+        <?php
+        //de inhoud van het tekstbestand afdrukken
+        if (file_exists($textfile) && filesize($textfile) > 0) {
+            readfile($textfile);
+        }
+        ?>
 
+    </div>
 </div>
 <?php
 
