@@ -5,7 +5,7 @@ define('USER', 'user');
 define('ERRORMESSAGE', 'errorMessage');
 
 $dsn = "sqlite:" . "shopping.sqlite";
-if (strrpos($_SERVER['REQUEST_URI'], 'admin')) {
+if (strrpos($_SERVER['REQUEST_URI'], '/admin/')) {
     $dsn = "sqlite:../shopping.sqlite";
 } else {
     $dsn = "sqlite:shopping.sqlite";
