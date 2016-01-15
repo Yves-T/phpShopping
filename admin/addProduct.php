@@ -4,6 +4,14 @@ include '../includes/db_inc.php';
 include '../includes/formvalidation/FormValidation.php';
 include '../includes/fileFunctions.php';
 
+if (!isset($_SESSION[USER])) {
+    $errorCookie = "errorMessage";
+    $errorCookieValue = "U hebt geen toegang tot de pagina die u hebt getracht te bezoeken!";
+    setcookie($errorCookie, $errorCookieValue, time() + (60), "/");
+    header('location: ../index.php');
+}
+
+
 $errors = [];
 if (!empty($_POST)) {
     $data = $_POST;
