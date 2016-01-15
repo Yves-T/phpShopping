@@ -84,13 +84,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <script src="js/commentScript.js"></script>
 
-
-        <?php
-        //de inhoud van het tekstbestand afdrukken
-        if (file_exists($textfile) && filesize($textfile) > 0) {
-            readfile($textfile);
-        }
-        ?>
+        <div id="gastenBoek">
+            <?php
+            //de inhoud van het tekstbestand afdrukken
+            if (file_exists($textfile) && filesize($textfile) > 0) {
+                readfile($textfile);
+            }
+            ?>
+        </div>
 
     </div>
 </div>
