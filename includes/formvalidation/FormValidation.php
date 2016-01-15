@@ -115,6 +115,7 @@ class ProductFormValidation extends FormValidation
     public function validateForm()
     {
         $this->validateDescription();
+        $this->validateName();
         $this->validateCategory();
         $this->validatePrice();
 
@@ -124,7 +125,7 @@ class ProductFormValidation extends FormValidation
     /**
      * Validate name. Create error if description is empty.
      */
-    private function validateDescription()
+    private function validateName()
     {
         if (empty($this->formData['name'])) {
             $this->errors['name'] = ProductFormValidation::$errorMessages['name'];
@@ -134,7 +135,7 @@ class ProductFormValidation extends FormValidation
     /**
      * Validate description. Create error if description is empty.
      */
-    private function validateName()
+    private function validateDescription()
     {
         if (empty($this->formData['description'])) {
             $this->errors['description'] = ProductFormValidation::$errorMessages['description'];
