@@ -2,7 +2,6 @@
 include '../includes/db_inc.php';
 include '../includes/formatFunctions_inc.php';
 require_once('../lib/jpgraph/src/jpgraph.php');
-require_once('../lib/jpgraph/src/jpgraph_bar.php');
 
 
 require_once('../lib/jpgraph/src/jpgraph_canvas.php');
