@@ -51,27 +51,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div>
             <button class="btn btn-success" ng-click="shopping.toggleForm()">{{shopping.toggleText}}</button>
         </div>
-        <form method="post" ng-show="shopping.showForm" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>>
-            <div class="form-group">
-                <label for="naam">Naam:</label>
-                <input id="naam" name="name" type="text" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input id="email" name="email" type="text" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label for="commentaar">Commentaar:</label>
-                <textarea id="commentaar" cols="50" rows="5" name="comment" class="form-control"></textarea>
-                <script>
-                    CKEDITOR.replace('commentaar', {
-                        language: 'nl'
-                    });
-                </script>
-            </div>
-            <input value="Verzenden" type="submit" class="btn btn-default"/>
-        </form>
-
+        <div ng-show="shopping.isFormVisible()">
+            <form method="post" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>>
+                <div class="form-group">
+                    <label for="naam">Naam:</label>
+                    <input id="naam" name="name" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input id="email" name="email" type="text" class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="commentaar">Commentaar:</label>
+                    <textarea id="commentaar" cols="50" rows="5" name="comment" class="form-control"></textarea>
+                    <script>
+                        CKEDITOR.replace('commentaar', {
+                            language: 'nl'
+                        });
+                    </script>
+                </div>
+                <input value="Verzenden" type="submit" class="btn btn-default"/>
+            </form>
+        </div>
 
         <h2>Achtergelaten berichtjes:</h2>
 
