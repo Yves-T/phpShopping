@@ -7,6 +7,14 @@ require_once('../lib/jpgraph/src/jpgraph_bar.php');
 
 require_once('../lib/jpgraph/src/jpgraph_canvas.php');
 require_once('../lib/jpgraph/src/jpgraph_table.php');
+
+if (!isset($_SESSION[USER])) {
+    $errorCookie = "errorMessage";
+    $errorCookieValue = "U hebt geen toegang tot de pagina die u hebt getracht te bezoeken!";
+    setcookie($errorCookie, $errorCookieValue, time() + (60), "/");
+    header('location: ../index.php');
+}
+
 function calculateBalance($income, $expenditure)
 {
     return convertDecimalPoint((float)$income - (float)$expenditure) + 0;
