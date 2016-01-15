@@ -99,7 +99,7 @@ class ProductFormValidation extends FormValidation
 
         $errorMessages = [
             'description' => "Omschrijving mag niet leeg zijn",
-            'category' => "Omschrijving mag niet leeg zijn",
+            'category' => "Categorie mag niet leeg zijn",
             'price' => "Prijs mag niet leeg zijn",
             'priceIsNumeric' => "Prijs moet een nummerieke waarde zijn"
         ];
