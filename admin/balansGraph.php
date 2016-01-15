@@ -1,7 +1,7 @@
 <?php
-include 'includes/db_inc.php';
-require_once('lib/jpgraph/src/jpgraph.php');
-require_once('lib/jpgraph/src/jpgraph_bar.php');
+include '../includes/db_inc.php';
+require_once('../lib/jpgraph/src/jpgraph.php');
+require_once('../lib/jpgraph/src/jpgraph_bar.php');
 
 
 $sql = "SELECT * FROM balans";

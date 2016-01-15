@@ -22,7 +22,7 @@ if (!isset($_SESSION[USER])) {
 
     <div class="row text-center">
         <div class="col-md-12">
-            <img src="../jpGraphDemo.php" alt="balans staafgrafiek">
+            <img src="balansGraph.php" alt="balans staafgrafiek">
         </div>
     </div>
 </div>
