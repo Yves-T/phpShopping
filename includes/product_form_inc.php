@@ -19,12 +19,7 @@
                 <textarea class="form-control" name="description"
                           id="description"><?php print (isset($data['description']) ? $data['description'] : ''); ?></textarea>
                 <script>
-                    CKEDITOR.replace('description', {
-                            filebrowserBrowseUrl: 'lib/Filemanager/index.html',
-                            filebrowserWindowWidth: '1000',
-                            filebrowserWindowHeight: '480'
-                        }
-                    );
+                    CKEDITOR.replace('description');
                 </script>
             </div>
         </div>
