@@ -19,7 +19,9 @@
                 <textarea class="form-control" name="description"
                           id="description"><?php print (isset($data['description']) ? $data['description'] : ''); ?></textarea>
                 <script>
-                    CKEDITOR.replace('description');
+                    CKEDITOR.replace('description', {
+                        language: 'nl'
+                    });
                 </script>
             </div>
         </div>
