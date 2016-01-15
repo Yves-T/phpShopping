@@ -6,6 +6,77 @@ abstract class FormValidation
     abstract public function validateForm();
 }
 
+class CommentFormValidation
+{
+
+    private $formData = [];
+    private $errors = [];
+
+    private static $errorMessages = [
+        'name' => "Naam mag niet leeg zijn",
+        'comment' => "Commentaar mag niet leeg zijn",
+        'emailEmpty' => 'Email mag niet leeg zijn',
+        'emailNotValid' => 'Email adres is niet geldig'
+    ];
+
+    /**
+     * CommentFormValidation constructor.
+     * @param array $formData
+     */
+    public function __construct(array $formData)
+    {
+        $this->formData = $formData;
+
+    }
+
+    /**
+     * Validate product form data
+     * @return array
+     */
+    public function validateForm()
+    {
+        $this->validateName();
+        $this->validateComment();
+        $this->validateEmail();
+
+        return $this->errors;
+    }
+
+    /**
+     * Validate name. Create error if name is empty.
+     */
+    private function validateName()
+    {
+        if (empty($this->formData['name'])) {
+            $this->errors['name'] = CommentFormValidation::$errorMessages['name'];
+        }
+    }
+
+    /**
+     * Validate comment. Create error if description is empty.
+     */
+    private function validateComment()
+    {
+        if (empty($this->formData['comment'])) {
+            $this->errors['comment'] = CommentFormValidation::$errorMessages['comment'];
+        }
+    }
+
+    /**
+     * Validate email. Create error if email is empty.
+     */
+    private function validateEmail()
+    {
+        if (empty($this->formData['email'])) {
+            $this->errors['emailEmpty'] = CommentFormValidation::$errorMessages['emailEmpty'];
+        }
+
+        if (!filter_var($this->formData['email'], FILTER_VALIDATE_EMAIL)) {
+            $this->errors['emailNotValid'] = CommentFormValidation::$errorMessages['emailNotValid'];
+        }
+    }
+}
+
 class ProductFormValidation extends FormValidation
 {
 
