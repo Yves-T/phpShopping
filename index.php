@@ -52,7 +52,7 @@ endif;
         <tr>
             <td><?php print $row['id']; ?></td>
             <td>
-                <a href="pdfForProductDetails.php?id=<?php print $row['id']; ?>">
+                <a href="productDetails.php?id=<?php print $row['id']; ?>">
                 <?php print $row['name']; ?>
                 </a>
             </td>
