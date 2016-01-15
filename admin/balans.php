@@ -14,7 +14,7 @@ if (!isset($_SESSION[USER])) {
 ?>
 
 <div class="container">
-    <div class="row text-center">
+    <div class="row text-center generatedImage">
         <div class="col-md-12">
             <img src="balansTable.php" alt="balans tabel">
         </div>

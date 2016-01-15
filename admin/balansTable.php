@@ -34,7 +34,7 @@ while ($row = $resultaat->fetch(PDO::FETCH_ASSOC)) {
 }
 
 // Setup graph context
-$graph = new CanvasGraph(810, 400);
+$graph = new CanvasGraph(803, 387);
 
 // Setup the basic table and font
 $table = new GTextTable();
