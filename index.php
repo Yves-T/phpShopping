@@ -50,7 +50,6 @@ endif;
     <?php foreach ($results as $row): ?>
 
         <tr>
-            <td class="rowId"><?php print $row['id']; ?></td>
             <td class="rowName">
                 <a href="productDetails.php?id=<?php print $row['id']; ?>">
                 <?php print $row['name']; ?>
