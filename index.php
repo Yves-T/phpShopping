@@ -50,22 +50,22 @@ endif;
     <?php foreach ($results as $row): ?>
 
         <tr>
-            <td><?php print $row['id']; ?></td>
-            <td>
+            <td class="rowId"><?php print $row['id']; ?></td>
+            <td class="rowName">
                 <a href="productDetails.php?id=<?php print $row['id']; ?>">
                 <?php print $row['name']; ?>
                 </a>
             </td>
-            <td>
+            <td class="rowDescription">
                     <?php print $row['description']; ?>
             </td>
-            <td>
+            <td class="rowImages">
                 <?php if (isset($row['image']) && !empty($row['image'])): ?>
                     <img src="productImages/<?php print $row['image']; ?>" alt="" width="100">
                 <?php endif; ?>
             </td>
-            <td><?php print $row['category']; ?></td>
-            <td><?php print convertDecimalPoint($row['price']); ?></td>
+            <td class="rowCategory"><?php print $row['category']; ?></td>
+            <td class="rowPrice"><?php print convertDecimalPoint($row['price']); ?></td>
         </tr>
 
     <?php endforeach; ?>
