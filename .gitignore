@@ -1,6 +1,7 @@
 *.sqlite
 .sass-cache
 lesgastenboek.txt
+productImages/
 css/
 gulpfile.js
 package.json
