@@ -36,7 +36,7 @@
                     <a href="admin/index.php">Producten</a>
                 </li>
                 <li class="<?php print (($pageNmae == 'admin/index.php') ? 'active' : ''); ?>">
-                    <a href="javascript:;">Balans</a>
+                    <a href="balans.php">Balans</a>
                 </li>
 
             </ul>
