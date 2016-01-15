@@ -55,15 +55,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form method="post" action=<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>>
                 <div class="form-group">
                     <label for="naam">Naam:</label>
-                    <input id="naam" name="name" type="text" class="form-control"/>
+                    <input id="naam" name="name" type="text" class="form-control"
+                           value="<?php print (isset($data['name']) ? $data['name'] : ''); ?>"
+                    />
                 </div>
                 <div class="form-group">
                     <label for="email">E-mail:</label>
-                    <input id="email" name="email" type="text" class="form-control"/>
+                    <input id="email" name="email" type="text" class="form-control"
+                           value="<?php print (isset($data['email']) ? $data['email'] : ''); ?>"
+                    />
                 </div>
                 <div class="form-group">
                     <label for="commentaar">Commentaar:</label>
-                    <textarea id="commentaar" cols="50" rows="5" name="comment" class="form-control"></textarea>
+                    <textarea id="commentaar" cols="50" rows="5" name="comment" class="form-control">
+                           <?php print (isset($data['comment']) ? $data['comment'] : ''); ?>
+                    </textarea>
                     <script>
                         CKEDITOR.replace('commentaar', {
                             language: 'nl'
