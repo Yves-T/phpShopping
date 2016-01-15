@@ -4,18 +4,28 @@
 abstract class FormValidation
 {
     protected $errors = [];
+    protected $formData = [];
 
     protected static $errorMessages = [
         'name' => "Naam mag niet leeg zijn"
     ];
 
     abstract public function validateForm();
+
+    /**
+     * Validate name. Create error if description is empty.
+     */
+    protected function validateName()
+    {
+        if (empty($this->formData['name'])) {
+            $this->errors['name'] = FormValidation::$errorMessages['name'];
+        }
+    }
 }
 
 class CommentFormValidation extends FormValidation
 {
 
-    private $formData = [];
 
     /**
      * CommentFormValidation constructor.
@@ -48,15 +58,6 @@ class CommentFormValidation extends FormValidation
         return $this->errors;
     }
 
-    /**
-     * Validate name. Create error if name is empty.
-     */
-    private function validateName()
-    {
-        if (empty($this->formData['name'])) {
-            $this->errors['name'] = CommentFormValidation::$errorMessages['name'];
-        }
-    }
 
     /**
      * Validate comment. Create error if description is empty.
@@ -86,7 +87,6 @@ class CommentFormValidation extends FormValidation
 class ProductFormValidation extends FormValidation
 {
 
-    private $formData = [];
 
 
     /**
@@ -120,16 +120,6 @@ class ProductFormValidation extends FormValidation
         $this->validatePrice();
 
         return $this->errors;
-    }
-
-    /**
-     * Validate name. Create error if description is empty.
-     */
-    private function validateName()
-    {
-        if (empty($this->formData['name'])) {
-            $this->errors['name'] = ProductFormValidation::$errorMessages['name'];
-        }
     }
 
     /**
