@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="<?php print (($pageNmae == 'admin/index.php') ? 'active' : ''); ?>">
-                    <a href="admin/index.php">Producten</a>
+                    <a href="index.php">Producten</a>
                 </li>
                 <li class="<?php print (($pageNmae == 'admin/index.php') ? 'active' : ''); ?>">
                     <a href="balans.php">Balans</a>
