@@ -3,21 +3,19 @@
 
 abstract class FormValidation
 {
+    protected $errors = [];
+
+    protected static $errorMessages = [
+        'name' => "Naam mag niet leeg zijn"
+    ];
+
     abstract public function validateForm();
 }
 
-class CommentFormValidation
+class CommentFormValidation extends FormValidation
 {
 
     private $formData = [];
-    private $errors = [];
-
-    private static $errorMessages = [
-        'name' => "Naam mag niet leeg zijn",
-        'comment' => "Commentaar mag niet leeg zijn",
-        'emailEmpty' => 'Email mag niet leeg zijn',
-        'emailNotValid' => 'Email adres is niet geldig'
-    ];
 
     /**
      * CommentFormValidation constructor.
@@ -26,6 +24,14 @@ class CommentFormValidation
     public function __construct(array $formData)
     {
         $this->formData = $formData;
+
+        $errorMessages = [
+            'comment' => "Commentaar mag niet leeg zijn",
+            'emailEmpty' => 'Email mag niet leeg zijn',
+            'emailNotValid' => 'Email adres is niet geldig'
+        ];
+
+        parent::$errorMessages = array_merge(parent::$errorMessages, $errorMessages);
 
     }
 
@@ -81,15 +87,7 @@ class ProductFormValidation extends FormValidation
 {
 
     private $formData = [];
-    private $errors = [];
 
-    private static $errorMessages = [
-        'name' => "Naam mag niet leeg zijn",
-        'description' => "Omschrijving mag niet leeg zijn",
-        'category' => "Omschrijving mag niet leeg zijn",
-        'price' => "Prijs mag niet leeg zijn",
-        'priceIsNumeric' => "Prijs moet een nummerieke waarde zijn"
-    ];
 
     /**
      * ProductFormValidation constructor.
@@ -98,6 +96,15 @@ class ProductFormValidation extends FormValidation
     public function __construct(array $formData)
     {
         $this->formData = $formData;
+
+        $errorMessages = [
+            'description' => "Omschrijving mag niet leeg zijn",
+            'category' => "Omschrijving mag niet leeg zijn",
+            'price' => "Prijs mag niet leeg zijn",
+            'priceIsNumeric' => "Prijs moet een nummerieke waarde zijn"
+        ];
+
+        parent::$errorMessages = array_merge(parent::$errorMessages, $errorMessages);
     }
 
 
