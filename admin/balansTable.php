@@ -29,35 +29,18 @@ while ($row = $resultaat->fetch(PDO::FETCH_ASSOC)) {
 // Setup graph context
 $graph = new CanvasGraph(810, 400);
 
-//$graph->SetMargin(30,10,40,20);
-//$graph->title->SetFont(FF_VERDANA, FS_BOLD, 20);
-//$graph->title->Set('Project Shopping');
-
 // Setup the basic table and font
 $table = new GTextTable();
 
-
-
-
-
 $table->Set($data);
-// Set the default alignment for the entire table
-$table->SetAlign("left");
-
-// The set the first column to use left alignment
-//$table->SetColAlign(1,"left");
-
 
 $table->SetFont(FF_TIMES, FS_NORMAL, 11);
-$table->SetFont(FF_TIMES,FS_NORMAL,12);
-$table->SetCellFont(0,0,FF_ARIAL,FS_BOLD,16);
+$table->SetFont(FF_TIMES, FS_NORMAL, 12);
+$table->SetCellFont(0, 0, FF_ARIAL, FS_BOLD, 16);
 
 $table->SetMinColWidth(200);
 
 $table->MergeRow(0);
-//$table->SetRowAlign(0,'center');
-
-
 
 // Setup color
 $table->SetRowFillColor(0, '#0b82ff@0.5');
@@ -71,7 +54,7 @@ $table->SetAlign('right');
 $graph->Add($table);
 
 $table->SetAlign("center");
-$table->SetColAlign(0,"left");
+$table->SetColAlign(0, "left");
 $table->SetRowAlign(0, 'center');
 
 // send it back to the client
