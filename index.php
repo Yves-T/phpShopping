@@ -70,11 +70,20 @@ endif;
 
     <?php endforeach; ?>
     <?php include "includes/end_ProductTable_inc.php"; ?>
+
     <div class="text-center">
         <?php
         echo $pager;
         ?>
     </div>
+
+    <p>
+        Pdf afrukken
+        <a href="pdfCompleteProductList.php">
+
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span>
+        </a>
+    </p>
 <?php else: ?>
     <div class="alert alert-warning">
         Er zijn geen producten gevonden.
