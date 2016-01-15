@@ -51,10 +51,13 @@ endif;
 
         <tr>
             <td><?php print $row['id']; ?></td>
-            <td><?php print $row['name']; ?></td>
             <td>
                 <a href="pdfForProductDetails.php?id=<?php print $row['id']; ?>">
-                    <?php print $row['description']; ?></a>
+                <?php print $row['name']; ?>
+                </a>
+            </td>
+            <td>
+                    <?php print $row['description']; ?>
             </td>
             <td>
                 <?php if (isset($row['image']) && !empty($row['image'])): ?>
