@@ -12,7 +12,30 @@ if (!isset($_SESSION[USER])) {
 
 
 $totalQuery = 'SELECT COUNT(*) FROM product';
-$query = 'SELECT * FROM product ORDER BY name LIMIT :limit OFFSET :offset';
+$query = 'SELECT * FROM product ';
+
+if (isset($_GET['sort'])) {
+    if ($_GET['sort'] == 'id') {
+        $query .= " ORDER BY id ";
+    }
+
+    if ($_GET['sort'] == 'name') {
+        $query .= " ORDER BY name ";
+    }
+
+    if ($_GET['sort'] == 'cat') {
+        $query .= " ORDER BY category ";
+    }
+
+    if ($_GET['sort'] == 'price') {
+        $query .= " ORDER BY price ";
+    }
+} else {
+    $query .= " ORDER BY name ";
+}
+
+$query .= " LIMIT :limit OFFSET :offset";
+
 $resultPager = new ResultPager($query, $totalQuery, $db);
 
 $page = min($resultPager->getPages(), filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
