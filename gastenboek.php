@@ -50,11 +50,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <textarea id="commentaar" cols="50" rows="5" name="commentaar" class="form-control"></textarea>
                 <script>
                     CKEDITOR.replace('commentaar', {
-                            filebrowserBrowseUrl: 'lib/Filemanager/index.html',
-                            filebrowserWindowWidth: '1000',
-                            filebrowserWindowHeight: '480'
-                        }
-                    );
+                        language: 'nl'
+                    });
                 </script>
             </div>
             <input value="Verzenden" type="submit" class="btn btn-default"/>
