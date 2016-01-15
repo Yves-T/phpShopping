@@ -45,9 +45,8 @@ endif;
 
 ?>
 
-<a href="addProduct.php" class="btn btn-success">Product toevoegen</a>
 <?php if (isset($results) && !empty($results)): ?>
-    <?php include 'includes/start_ProductTable_inc.php' ?>
+    <?php include 'includes/start_ProductTable_user_inc.php' ?>
     <?php foreach ($results as $row): ?>
 
         <tr>
@@ -64,16 +63,9 @@ endif;
             </td>
             <td><?php print $row['category']; ?></td>
             <td><?php print convertDecimalPoint($row['price']); ?></td>
-            <td>
-                <a href="updateProduct.php?id=<?php print $row['id'] ?>" class="btn btn-success">Aanpassen</a>
-            </td>
-            <td class="delete" id="<?php print $row['id'] ?>">
-                <input id="<?php print $row['id'] ?>" type="submit" class="btn btn-danger" value="verwijderen">
-            </td>
         </tr>
 
     <?php endforeach; ?>
-    <script src="js/handleProductDelete.js"></script>
     <?php include "includes/end_ProductTable_inc.php"; ?>
     <div class="text-center">
         <?php
