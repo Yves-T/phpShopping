@@ -88,3 +88,11 @@ background-color: rgb(34, 34, 34);
 .navbar-default {
   background-color: rgb(213, 233, 247);
 }
+
+// styles for show more script
+.morecontent span {
+  display: none;
+}
+.morelink {
+  display: block;
+}

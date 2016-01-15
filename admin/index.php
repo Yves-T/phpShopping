@@ -83,7 +83,7 @@ endif;
         <tr>
             <td class="rowId"><?php print $row['id']; ?></td>
             <td class="rowName"><?php print $row['name']; ?></td>
-            <td class="rowDescription">
+            <td class="rowDescription more">
 
                 <?php print $row['description']; ?>
             </td>
@@ -103,6 +103,9 @@ endif;
         </tr>
 
     <?php endforeach; ?>
+
+    <script type="text/javascript" src="../js/readmore.js"></script>
+
     <script src="../js/handleProductDelete.js"></script>
     <?php include "../includes/end_ProductTable_inc.php"; ?>
     <div class="text-center">
